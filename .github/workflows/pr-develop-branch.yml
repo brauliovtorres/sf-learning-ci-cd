@@ -112,19 +112,19 @@ jobs:
             # that has changed between commits. I highly recommend going over the github readme 
             # for more information on how this works.
 
-            - name: 'Installing sfdx git delta'
+            - name: 'Install sfdx git delta'
               run: | 
                   echo y | sfdx plugins:install sfdx-git-delta
                   sfdx plugins
 
             # Install java as it is required for the next step
-            - name: 'Installing java'
+            - name: 'Install java'
               run: |
                 sudo apt-get update
                 sudo apt install default-jdk
 
             # Install SFDX scanner
-            - name: 'Installing SFDX scanner'
+            - name: 'Install SFDX scanner'
               run: sfdx plugins:install @salesforce/sfdx-scanner
 
 
