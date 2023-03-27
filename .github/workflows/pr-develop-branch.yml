@@ -140,10 +140,14 @@ jobs:
 
             # The URL is stored in the Github Secret named SFDX_DEV_ORG_URL
             # so here we store the URL into a text file
-            - name: 'Populate auth file with SFDX_URL secret of integration org'
+            - name: 'Populate auth file with SFDX_URL secret of DEV ORG'
               shell: bash
               run: |
                   echo ${{ secrets.SFDX_DEV_ORG_URL}} > ./SFDX_DEV_ORG_URL.txt
+
+            # Authenticate to org using the URL stored in the text file
+            - name: 'Authenticate to DEV ORG'
+              run: sfdx auth:sfdxurl:store -f ./SFDX_DEV_ORG_URL.txt -s -a DEV-ORG
 
 
 
