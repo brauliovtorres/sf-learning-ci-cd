@@ -34,6 +34,13 @@ jobs:
         # In this case, we are going to run our commands on the latest version of ubuntu
         runs-on: ubuntu-latest
 
+        permissions:
+          # required for all workflows
+          security-events: write
+          # only required for workflows in private repositories
+          actions: read
+          contents: read
+
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
 
